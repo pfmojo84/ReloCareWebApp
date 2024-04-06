@@ -3,7 +3,7 @@ const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Prevent non logged in users from viewing the homepage
-router.get('/', auth, async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try{
       const dbPostData = await Post.findAll({
           include: [
@@ -27,7 +27,7 @@ router.get('/', auth, async (req, res) => {
   }
 })
 
-router.get('/dashboard/:id', auth, async (req,res) => {
+router.get('/dashboard/:id', withAuth, async (req,res) => {
   try{
       const dbUserData = await Post.findAll({
           where: { user_id: req.params.id }
@@ -67,7 +67,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 })
 
-router.get('/posts/:id', auth, async (req, res) => {
+router.get('/posts/:id', withAuth, async (req, res) => {
   try{
       const dbCommentData = await Comment.findAll({
           where: {
@@ -109,7 +109,7 @@ router.get('/posts/:id', auth, async (req, res) => {
 });
 
 
-router.get('/newpost', auth, (req, res) => {
+router.get('/newpost', withAuth, (req, res) => {
   res.render('newpost', {
       userId: req.session.userId,
       loggedIn: req.session.loggedIn,
@@ -117,7 +117,7 @@ router.get('/newpost', auth, (req, res) => {
   })
 })
 
-router.get('/newcomment', auth, async (req, res) => {
+router.get('/newcomment', withAuth, async (req, res) => {
 
   const dbPostData = await Post.findByPk(req.session.postId, {
       include: [
