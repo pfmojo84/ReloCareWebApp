@@ -1,0 +1,6 @@
+<div class="d-flex justify-content-center mt-3">
+    <a href="/newpost" class="text-center border border-round-dark"><button type="button" class="btn btn-secondary">Add Post +</button></a>
+</div>
+{{#each posts as |post|}}
+{{> user-posts}}
+{{/each}}

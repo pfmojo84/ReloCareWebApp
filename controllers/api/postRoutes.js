@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post } = require('../../models');
+const { Post, Comment } = require('../../models');
 const withAuth = require('../../utils/helpers'); //to add withAuth authentication middleware
 
 // Get all posts
@@ -18,6 +18,8 @@ router.post('/', async (req, res) => {
 })
 // renders new comment page and passes necesarry information
 router.post('/newcomment', async (req, res) => {
+
+    console.log(`${req.body.conent}im here`)
     try{
          const dbCommentData = await Comment.create({
             content: req.body.content,
