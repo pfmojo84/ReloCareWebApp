@@ -4,6 +4,11 @@ const withAuth = require('../utils/auth');
 
 // Prevent non logged in users from viewing the homepage
 router.get('/', withAuth, async (req, res) => {
+
+    const loggedIn = req.session.loggedIn;
+    const username = req.session.userId;
+    const postId = req.session.postId;
+    console.log(`${loggedIn}\n${username}\n${postId}`)
   try{
       const dbPostData = await Post.findAll({
           include: [
@@ -139,4 +144,3 @@ router.get('/newcomment', withAuth, async (req, res) => {
 
 module.exports = router;
 
-module.exports = router;
