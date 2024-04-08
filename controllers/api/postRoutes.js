@@ -3,17 +3,35 @@ const { Post } = require('../../models');
 const withAuth = require('../../utils/helpers'); //to add withAuth authentication middleware
 
 // Get all posts
-router.get('/', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
-        //find all posts in the database
-        const postData = await Post.findAll();
-        //send the retrieved posts as a JSON response
-        res.status(200).json(postData);
-    } catch (err) {
-        res.status(500).json(err);
+        const dbPostData = await Post.create({
+            post_title: req.body.title,
+            content: req.body.content,
+            user_id: req.session.userId,
+        })
+        res.status(200).json(dbPostData);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json(error);
     }
-});
+})
+// renders new comment page and passes necesarry information
+router.post('/newcomment', async (req, res) => {
+    try{
+         const dbCommentData = await Comment.create({
+            content: req.body.content,
+            user_id: req.session.userId,
+            post_id: req.session.postId
+         })
+         res.status(200).json(dbCommentData)
+    } catch (error){
+        console.error(error);
+        res.status(500).json(error);
+    }
+})
 
+/*
 // Get a single post by id
 router.get('/:id', async (req, res) => {
     try {
@@ -32,20 +50,6 @@ router.get('/:id', async (req, res) => {
 });
 
 // Create a new post
-router.post('/', withAuth, async (req, res) => {
-    try {
-        //create a new post with the data from the request body
-        //and the user_id from the session
-        const newPost = await Post.create({
-            ...req.body,
-            user_id: req.session.user_id
-        });
-        //send newly created post as a JSON response
-        res.status(201).json(newPost);
-    } catch (err) {
-        res.status(400).json(err);
-    }
-});
 
 // Update a post
 router.put('/:id', withAuth, async (req, res) => {
@@ -89,5 +93,6 @@ router.delete('/:id', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+*/
 
 module.exports = router;
