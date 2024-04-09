@@ -9,7 +9,6 @@ const logoutButton = document.getElementById('logout');
         if (response.ok) {
             document.location.replace('/');
         } else {
-            console.log(response);
             alert('Failed to logout');
         }
     };

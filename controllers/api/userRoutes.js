@@ -54,9 +54,8 @@ router.post('/login', async (req,res) => {
       });
   } catch (error) {
       console.error(error);
-      res.status(500).json({message: 'User now logged in'})
+      res.status(500).json(error)
   }
-  console.log(req.body.password)
 })
 
 router.post('/logout', (req, res) => {

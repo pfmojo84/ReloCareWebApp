@@ -30,6 +30,14 @@ Post.init(
                 key: 'id'
 
             }
+        },
+        post_state: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        category: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     },
     {
