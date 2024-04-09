@@ -15,7 +15,9 @@ const createComment = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace(`/`);
+            
+            console.log(post.id)
+            document.location.replace(`/posts/${post.id}`);
         } else {
             alert('failed to add comment')
         }

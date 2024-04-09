@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
         res.status(500).json(error);
     }
 })
-// renders new comment page and passes necesarry information
+// creates a new comment
 router.post('/newcomment', async (req, res) => {
 
     console.log(`${req.body.conent}im here`)
