@@ -4,11 +4,14 @@ const withAuth = require('../../utils/helpers'); //to add withAuth authenticatio
 
 // Get all posts
 router.post('/', async (req, res) => {
+
     try {
         const dbPostData = await Post.create({
             post_title: req.body.title,
             content: req.body.content,
             user_id: req.session.userId,
+            post_state: req.body.state,
+            category: req.body.category
         })
         res.status(200).json(dbPostData);
     } catch (error) {
@@ -16,10 +19,9 @@ router.post('/', async (req, res) => {
         res.status(500).json(error);
     }
 })
-// renders new comment page and passes necesarry information
+// creates a new comment
 router.post('/newcomment', async (req, res) => {
 
-    console.log(`${req.body.conent}im here`)
     try{
          const dbCommentData = await Comment.create({
             content: req.body.content,

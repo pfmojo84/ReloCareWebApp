@@ -5,8 +5,6 @@ const createComment = async (event) => {
 
     const content = document.getElementById('new-comment-content').value.trim();
 
-    console.log(`${content}`);
-    
     if (content) {
         const response = await fetch('/api/posts/newcomment', {
             method: 'POST',
@@ -15,7 +13,8 @@ const createComment = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace(`/`);
+
+           document.location.replace('/')
         } else {
             alert('failed to add comment')
         }
