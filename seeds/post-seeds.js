@@ -27,6 +27,34 @@ const postData = [
         user_id: 3,
         post_state: "nh",
         category: "healthcare"
+    },
+    {
+        post_title: "New to VT and need a ride? GOPHER It!",
+        content: "Families eligible for subsidized services will receive fare-free rides for everyday transportation needs! Gopher, the new service operating in central VT, offers door-to-door rides to and from work, appointments, and errands, in addition to social and recreational activities. Call 1-855-467-4375 to learn more or book a ride today!",
+        user_id: 4,
+        post_state: "vt",
+        category: "transport"
+    },
+    {
+        post_title: "Looking for legal assistance in Vermont?",
+        content: "The Vermont Asylum Assistance Project is here to help! This organization offers pro bono legal services and promotes the rights of Vermont immigrant communities. Visit their website at vaapvt.org/legal-support to learn more and submit an application to receive services.",
+        user_id: 5,
+        post_state: "vt",
+        category: "legal"
+    },
+    {
+        post_title: "Help cover cost of living expenses for families in Rutland",
+        content: "Bridge to Rutland’s second annual Arts Marathon kicked off on April 1st. Last year, fourteen local artists generously donated their time and talent to raise funds for Bridge to Rutland. Last year’s event raised from thank $10,000 to cover housing, legal, and living expenses for asylum seekers in Rutland!",
+        user_id: 5,
+        post_state: "vt",
+        category: "food"
+    },
+    {
+        post_title: "Pediatric New American Program offers care in Burlington!",
+        content: "New American families with children between 1 month and 5 years old can obtain clinical care through the Building Strong Families Clinic, which is hosted in the Burlington area Parent Child Center. Appointments last approximately 1.5 hours and include a 30-minute private exam along with parent education and support around raising children in a new country. Visit thefamilyroomv.org to see a calendar of clinic hours and enrollment information!",
+        user_id: 6,
+        post_state: "vt",
+        category: "healthcare"
     }
 ];
 
