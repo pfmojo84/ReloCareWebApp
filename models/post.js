@@ -20,13 +20,13 @@ Post.init(
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {
-                len: [3, 500]
+                len: [3]
             }
         },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'User',
+                model: 'user',
                 key: 'id'
 
             }

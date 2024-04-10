@@ -1,11 +1,11 @@
 const { Post } = require('../models');
 const postData = [
     {
-        post_title: "test 1",
-        content: 'test 1',
-        user_id: 1,
-        post_state: "nh",
-        category: "transport"
+        post_title: "New to VT and looking for legal assistance?",
+        content: 'The Vermont Asylum Assistance Project is here to help! This organization offers pro bono legal services and promotes the rights of Vermont immigrant communities. Visit their website at ‘vaapvt.org/legal-support’ to learn more and submit an application to receive services.',
+        user_id: 2,
+        post_state: "vt",
+        category: "legal"
     },
     {
         post_title: "test 2",

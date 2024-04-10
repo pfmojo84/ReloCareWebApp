@@ -20,7 +20,7 @@ router.get('/', withAuth, async (req, res) => {
           posts,
           loggedIn: req.session.loggedIn,
           userId: req.session.userId,
-          showDashboard: true
+          showLogout: true
       });
   }catch (error) {
       console.log(error);
@@ -28,10 +28,10 @@ router.get('/', withAuth, async (req, res) => {
   }
 })
 
-router.get('/dashboard/:id', withAuth, async (req,res) => {
+router.get('/dashboard', withAuth, async (req,res) => {
   try{
       const dbUserData = await Post.findAll({
-          where: { user_id: req.params.id }
+          where: { user_id: req.session.userId }
       })
 
       const posts = dbUserData.map((post) => post.get({ plain: true }));
@@ -39,7 +39,7 @@ router.get('/dashboard/:id', withAuth, async (req,res) => {
       res.render('dashboard', {
           posts,
           loggedIn: req.session.loggedIn,
-          showDashboard: false
+          showLogout: true
       })
 
   } catch (error) {
@@ -138,6 +138,35 @@ router.get('/newcomment', withAuth, async (req, res) => {
   });
 })
 
+router.get('/editpost/:id', withAuth, async (req, res) => {
+    try{
+
+        req.session.postId = req.params.id;
+
+        const dbPostData = await Post.findByPk(req.session.postId, {
+            include:[
+                {
+                    model: User,
+                    attributes: ['username']
+                }
+            ]});
+        const post = dbPostData.get({ plain: true });
+
+
+        // renders the post template and passes in variables, postId is created as a session variable here which will be used to create new comments related to this post
+        res.render('editpost', {
+            loggedIn: req.session.loggedIn,
+            showDashboard: false,
+            postId: req.session.postId,
+            post
+        })
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json(error);
+    }
+});
+
 
 // all the routes for the states grouped by state 
 
@@ -146,7 +175,9 @@ router.get('/newhampshire', withAuth, async (req, res) => {
     res.render('newhampshire', {
         loggedIn: req.session.loggedIn,
         showDashboard: false,
-        postId: req.session.postId
+        postId: req.session.postId,
+        showNh: true,
+        showLogout: true
     })
 })
 
@@ -171,7 +202,8 @@ router.get('/nhtransport', withAuth, async (req, res) => {
             loggedIn: req.session.loggedIn,
             showDashboard: false,
             postId: req.session.postId,
-            posts
+            posts,
+            showNh: true
         })
     } catch (error){
         res.status(500)
@@ -199,7 +231,8 @@ router.get('/nhlegal', withAuth, async (req, res) => {
             loggedIn: req.session.loggedIn,
             showDashboard: false,
             postId: req.session.postId,
-            posts
+            posts,
+            showNh: true
         })
     } catch (error){
         res.status(500)
@@ -227,7 +260,8 @@ router.get('/nhfood', withAuth, async (req, res) => {
             loggedIn: req.session.loggedIn,
             showDashboard: false,
             postId: req.session.postId,
-            posts
+            posts,
+            showNh: true
         })
     } catch (error){
         res.status(500)
@@ -255,7 +289,8 @@ router.get('/nhhealth', withAuth, async (req, res) => {
             loggedIn: req.session.loggedIn,
             showDashboard: false,
             postId: req.session.postId,
-            posts
+            posts,
+            showNh: true
         })
     } catch (error){
         res.status(500)
@@ -268,7 +303,9 @@ router.get('/vermont', withAuth, async (req, res) => {
     res.render('vermont', {
         loggedIn: req.session.loggedIn,
         showDashboard: false,
-        postId: req.session.postId
+        postId: req.session.postId,
+        showVt: true,
+        showLogout: true
     })
 })
 
@@ -293,7 +330,8 @@ router.get('/vttransport', withAuth, async (req, res) => {
             loggedIn: req.session.loggedIn,
             showDashboard: false,
             postId: req.session.postId,
-            posts
+            posts,
+            showVt: true
         })
     } catch (error){
         res.status(500)
@@ -321,7 +359,8 @@ router.get('/vtlegal', withAuth, async (req, res) => {
             loggedIn: req.session.loggedIn,
             showDashboard: false,
             postId: req.session.postId,
-            posts
+            posts,
+            showVt: true
         })
     } catch (error){
         res.status(500)
@@ -349,7 +388,8 @@ router.get('/vtfood', withAuth, async (req, res) => {
             loggedIn: req.session.loggedIn,
             showDashboard: false,
             postId: req.session.postId,
-            posts
+            posts,
+            showVt: true
         })
     } catch (error){
         res.status(500)
@@ -377,7 +417,8 @@ router.get('/vthealth', withAuth, async (req, res) => {
             loggedIn: req.session.loggedIn,
             showDashboard: false,
             postId: req.session.postId,
-            posts
+            posts,
+            showVt: true
         })
     } catch (error){
         res.status(500)
@@ -389,7 +430,9 @@ router.get('/massachusetts', withAuth, async (req, res) => {
     res.render('massachusetts', {
         loggedIn: req.session.loggedIn,
         showDashboard: false,
-        postId: req.session.postId
+        postId: req.session.postId,
+        showMa: true,
+        showLogout: true
     })
 })
 
@@ -414,7 +457,8 @@ router.get('/matransport', withAuth, async (req, res) => {
             loggedIn: req.session.loggedIn,
             showDashboard: false,
             postId: req.session.postId,
-            posts
+            posts,
+            showMa: true
         })
     } catch (error){
         res.status(500)
@@ -442,7 +486,8 @@ router.get('/malegal', withAuth, async (req, res) => {
             loggedIn: req.session.loggedIn,
             showDashboard: false,
             postId: req.session.postId,
-            posts
+            posts,
+            showMa: true
         })
     } catch (error){
         res.status(500)
@@ -470,7 +515,8 @@ router.get('/mafood', withAuth, async (req, res) => {
             loggedIn: req.session.loggedIn,
             showDashboard: false,
             postId: req.session.postId,
-            posts
+            posts,
+            showMa: true
         })
     } catch (error){
         res.status(500)
@@ -498,7 +544,8 @@ router.get('/mahealth', withAuth, async (req, res) => {
             loggedIn: req.session.loggedIn,
             showDashboard: false,
             postId: req.session.postId,
-            posts
+            posts,
+            showMa: true
         })
     } catch (error){
         res.status(500)
