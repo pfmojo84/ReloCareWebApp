@@ -3,7 +3,7 @@
         <div class="card m-3 border-dark">
 
             <div class="card-header bg-success">
-                <h5 class="text-center">{{post.post_title}}</h5>
+                <h5 class="text-center text-light">{{post.post_title}}</h5>
             </div>
 
             <div class="card-body m-2">
@@ -21,13 +21,14 @@
      <div class="col-lg-6 col-mb-12">
         <div class="card bg-success">
             <div class="card-body">
-                <h5 class="card-title text-center mb-3">New Comment</h5>
+                <h5 class="card-title text-center mb-3 text-white">New Comment</h5>
                 <form class="form new-comment"  id="new-comment">
-                    <div class="form-group mt-2">
+                    <div class="form-group mt-2 text-white">
                         <label for="new-comment-content">Comment Content</label>
                         <textarea class="form-control" id="new-comment-content" rows="3"></textarea>
                     </div>
-                    <a href="posts/{{post.id}}"><button type="submit" class="btn btn-primary">Submit</button>
+                    <hr>
+                    <a href="posts/{{post.id}}"><button type="submit" class="btn btn-light text-success">Submit</button>
                 </form>
             </div>
         </div>
