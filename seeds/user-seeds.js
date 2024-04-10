@@ -7,8 +7,8 @@ const userData = [
         password: 'ReloCare123'
     },
     {
-        username: "test1",
-        email: 'test1@gmail.com',
+        username: "Vermont",
+        email: 'vermont@gmail.com',
         password: 'cookies123'
     },
     {
