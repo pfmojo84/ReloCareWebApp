@@ -21,13 +21,20 @@
           <a class="nav-link" href="/">Home</a>
         </li>
         {{#if loggedIn}}
-        {{#if showDashboard}}
         <li class="nav-item">
-          <a class="nav-link" href="/dashboard/{{userId}}">Dashboard</a>
+          <a class="nav-link" href="/dashboard">Dashboard</a>
         </li>
+        {{#if showNh}}
+        <a class="nav-link" href="/newhampshire">New Hampshire</a>
         {{/if}}
-        {{#if showDashboard}}
-        <li class="nav-item">
+        {{#if showMa}}
+        <a class="nav-link" href="/massachusetts">Massachusetts</a>
+        {{/if}}
+        {{#if showVt}}
+        <a class="nav-link" href="/vermont">Vermont</a>
+        {{/if}}
+        {{#if showLogout}}
+        <li class="nav-item text-right">
           <button type="button" class="btn btn-dark" id="logout">Logout</button>
         </li>
         {{/if}}
