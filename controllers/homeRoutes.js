@@ -99,7 +99,8 @@ router.get('/posts/:id', withAuth, async (req, res) => {
           showDashboard: false,
           postId: req.session.postId,
           post,
-          comments
+          comments,
+          notPublic: true
 
       })
 
@@ -158,7 +159,8 @@ router.get('/editpost/:id', withAuth, async (req, res) => {
             loggedIn: req.session.loggedIn,
             showDashboard: false,
             postId: req.session.postId,
-            post
+            post,
+            notPublic: true
         })
 
     } catch (error) {
