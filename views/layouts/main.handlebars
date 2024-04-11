@@ -13,8 +13,13 @@
     <link rel="stylesheet" type="tex/css" href="../../public/css/style.css">
 </head>
 <body>
+  {{#if notPublic}}
+  <nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <span class="navbar-brand text-light ms-3" href="#"><h3>ReloCare</h3></span>
+  {{else}}
   <nav class="navbar navbar-expand-lg navbar-light bg-success">
     <span class="navbar-brand text-light ms-3" href="#"><img src="./images/relocare3.png" width="100" height="100"></span>
+    {{/if}}
     <div>
       <ul class="navbar-nav">
         <li class="nav-item">
