@@ -26,7 +26,7 @@ const postData = [
         content: 'Last chance to register for this important community event being hosted by Welcoming NH on Saturday, April 20th at the Boys & Girls Club of Manchester. Representatives from local child care centers, Head Start, and the NH Housing Authority will be in attendance. Food, childcare, language interpretation, and local transportation are all offered for free for those who pre-register! Be sure to take advantage and we hope to see you on the 20th!',
         user_id: 3,
         post_state: "nh",
-        category: "healthcare"
+        category: "health"
     },
     {
         post_title: "New to VT and need a ride? GOPHER It!",
