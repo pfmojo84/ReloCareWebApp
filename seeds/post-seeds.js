@@ -54,7 +54,35 @@ const postData = [
         content: "New American families with children between 1 month and 5 years old can obtain clinical care through the Building Strong Families Clinic, which is hosted in the Burlington area Parent Child Center. Appointments last approximately 1.5 hours and include a 30-minute private exam along with parent education and support around raising children in a new country. Visit thefamilyroomv.org to see a calendar of clinic hours and enrollment information!",
         user_id: 6,
         post_state: "vt",
-        category: "healthcare"
+        category: "health"
+    },
+    {
+        post_title: "Drivers Wanted! Connect with Ascentria today!",
+        content: "With roots in the community that begin in 1872, Ascentria offers a wide array of services for individuals and families in need of economic and/or social support. Are you able to offer transportation to school, work, or appointments? Can you host an individual or family in your home for a short or long-term stay? Are you or your business hiring new employees? Visit ascentria.org today and learn more about ways to help New Americans in MA!",
+        user_id: 4,
+        post_state: "ma",
+        category: "transport"
+    },
+    {
+        post_title: "Pro Bono Legal aid for asylum seekers is available now!",
+        content: "Volunteer attorneys are available through the PAIR Project to assist you or someone you know through the onerous and complex asylum process. Visit pairproject.org/gethelp make an appointment and gain access to this valuable support service.",
+        user_id: 5,
+        post_state: "ma",
+        category: "legal"
+    },
+    {
+        post_title: "Get help navigating food subsidies in MA!",
+        content: "Project Bread offers free access to expert counselors who are connected with food and nutrition assistance programs offered by the state and non-profit organizations in Massachusetts. They can help you access local food resources and federal nutrition programs and determine eligibility for state funding opportunities such as SNAP. Counseling is available in over 180 languages. Call 1-800-645-8333 to get connected with a counselor today.",
+        user_id: 4,
+        post_state: "ma",
+        category: "food"
+    },
+    {
+        post_title: "Comprehensive care and mental health services available at BMC",
+        content: "Through an innovative model of outpatient care, Boston Center for Refugee Health and Human Rights (BCRHHR) provides comprehensive mental health services, including counseling and medication management, designed to meet the special needs of refugees and survivors of torture, asylum seekers and immigrants. The BCRHHR provides services to approximately 500 individuals from over 40 countries. Interpreter services are available for more than 250 languages to aid in the healing journey of each patient and their families.",
+        user_id: 6,
+        post_state: "ma",
+        category: "health"
     }
 ];
 
